@@ -1,0 +1,108 @@
+<% include header %>
+Results 
+<ul class="list-group">
+
+<%  var no=0; data.forEach((data) => { %>
+	<li class="list-group-item" style="overflow:hidden;">
+		<div class="row">
+			<div class="col-lg-10">
+				<% var demoNo = no++ %>
+				<b>ISP Name: </b> <%= data.isp %>
+			</div>
+
+			<div class="col-lg-2">
+				<button type="button" class="btn btn-info pull-right btn-sm" data-toggle="collapse" data-target='#demo<%= demoNo %>'><span class="glyphicon glyphicon-plus"></span></button>
+			</div>
+		</div>
+		<div id="demo<%= demoNo %>" class="collapse">
+			<div class="container">
+				<div class="row">
+					<h3><span class="glyphicon glyphicon-globe"></span> <%= data.ip_str %></h3>
+					<br/>
+					<div class="col-lg-6">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<tr>
+							      <td>City</td>
+							      <td><%= data.location.city %></td>
+							    </tr>
+							    <tr>
+							      <td>Country</td>
+							      <td><%= data.location.country_name %></td>
+							    </tr>
+							    <tr>
+							      <td>Postal Code</td>
+							      <td><%= data.location.postal_code %></td>
+							    </tr>
+							    <tr>
+							      <td>Country Code</td>
+							      <td><%= data.location.country_code %></td>
+							    </tr>
+							    <tr>
+							      <td>Region Code</td>
+							      <td><%= data.location.region_code %></td>
+							    </tr>
+							    <tr>
+							      <td>Organization</td>
+							      <td><%= data.org %></td>
+							    </tr>
+							    <tr>
+							      <td>Last Update</td>
+							      <td><%= data.timestamp %></td>
+							    </tr>
+							    <tr>
+							      <td>Hostnames</td>
+							      <td><%= data.hostnames %></td>
+							    </tr>
+							    <tr>
+							      <td>ASN</td>
+							      <td><%= data.asn %></td>
+							    </tr>
+							    <tr>
+							      <td>Domains</td>
+							      <td><%= data.domains %></td>
+							    </tr>
+							    <tr>
+							      <td>Ports</td>
+							      <td><%= data.ports %></td>
+							    </tr>
+							    <tr>
+							      <td>OS</td>
+							      <td><%= data.os %></td>
+							    </tr>
+							    <tr>
+							      <td>Tags</td>
+							      <td><%= data.tags %></td>
+							    </tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<h3> Other</h3>
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<tr>
+							      <td>Product</td>
+							      <td><%= data.product %></td>
+							    </tr>
+							    <tr>
+							      <td>Hash</td>
+							      <td><%= data.hash %></td>
+							    </tr>
+							    <tr>
+							      <td>Version</td>
+							      <td><%= data.version %></td>
+							    </tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+<%  }) %>
+
+
+</ul>
+
+<% include footer %>
